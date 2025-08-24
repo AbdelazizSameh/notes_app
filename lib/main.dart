@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/views/home_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const NotesApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NotesApp extends StatelessWidget {
+  const NotesApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeView());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeView());
   }
 }
