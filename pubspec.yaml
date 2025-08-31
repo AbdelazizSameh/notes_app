@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_bloc: ^9.1.1
   font_awesome_flutter: 
   google_fonts: ^6.3.0
   hive: ^2.2.3
