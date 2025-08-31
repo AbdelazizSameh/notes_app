@@ -9,7 +9,7 @@ class NoteItem extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 24, bottom: 24, left: 24),
       decoration: BoxDecoration(
-        color: const Color(0xfffffcCbc),
+        color: Color.fromARGB(255, 165, 186, 194),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -39,11 +39,7 @@ class NoteItem extends StatelessWidget {
                   left: 16,
                   right: 10,
                 ),
-                child: Icon(
-                  FontAwesomeIcons.trash,
-                  color: Colors.black,
-                  size: 23,
-                ),
+                child: Icon(Icons.delete, color: Colors.black, size: 30),
               ),
             ),
           ),
