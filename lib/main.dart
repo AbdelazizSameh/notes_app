@@ -14,6 +14,9 @@ class NotesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white.withValues(alpha: 0.2),
+        bottomSheetTheme: BottomSheetThemeData(
+          backgroundColor: Colors.grey.shade800,
+        ),
         brightness: Brightness.dark,
         fontFamily: 'Poppins',
         // textTheme: ,
