@@ -11,8 +11,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Bloc.observer = SimpleBlocObserver();
-  await Hive.openBox(kNotesBox);
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>(kNotesBox);
   runApp(const NotesApp());
 }
 
@@ -21,21 +21,18 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => AddNoteCubit())],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white.withValues(alpha: 0.2),
-          bottomSheetTheme: BottomSheetThemeData(
-            backgroundColor: Colors.grey.shade800,
-          ),
-          brightness: Brightness.dark,
-          fontFamily: 'Poppins',
-          // textTheme: ,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white.withValues(alpha: 0.2),
+        bottomSheetTheme: BottomSheetThemeData(
+          backgroundColor: Colors.grey.shade800,
         ),
-        home: const NotesView(),
+        brightness: Brightness.dark,
+        fontFamily: 'Poppins',
+        // textTheme: ,
       ),
+      home: const NotesView(),
     );
   }
 }
