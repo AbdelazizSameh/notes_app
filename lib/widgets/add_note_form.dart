@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:notes_app/constants.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_button.dart';
@@ -80,7 +81,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
     var formattedDate = DateFormat.yMd().format(currentDate);
 
     NoteModel noteModel = NoteModel(
-      color: Color(0xffabdf90).toARGB32(),
+      color: kColors[0].toARGB32(),
       title: _titleController.text,
       subtitle: _contentController.text,
       date: formattedDate,

@@ -22,7 +22,7 @@ class NoteItem extends StatelessWidget {
         );
       },
       child: Container(
-        padding: EdgeInsets.only(top: 24, bottom: 24, left: 24),
+        padding: const EdgeInsets.only(top: 24, bottom: 24, left: 24),
         decoration: BoxDecoration(
           color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
@@ -31,7 +31,7 @@ class NoteItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              contentPadding: EdgeInsets.only(right: 0),
+              contentPadding: const EdgeInsets.only(right: 0),
               title: Text(
                 note.title,
                 style: const TextStyle(color: Colors.black, fontSize: 27),
@@ -41,7 +41,7 @@ class NoteItem extends StatelessWidget {
                 child: Text(
                   note.subtitle,
                   style: const TextStyle(
-                    color: Color.fromARGB(255, 122, 122, 122),
+                    color: Color.fromARGB(255, 83, 78, 78),
                     fontSize: 20,
                   ),
                 ),
@@ -57,7 +57,11 @@ class NoteItem extends StatelessWidget {
                     left: 16,
                     right: 10,
                   ),
-                  child: Icon(Icons.delete, color: Colors.black, size: 30),
+                  child: const Icon(
+                    Icons.delete,
+                    color: Colors.black,
+                    size: 30,
+                  ),
                 ),
               ),
             ),
@@ -66,8 +70,8 @@ class NoteItem extends StatelessWidget {
               padding: const EdgeInsets.only(right: 16.0),
               child: Text(
                 note.date,
-                style: TextStyle(
-                  color: const Color.fromARGB(255, 122, 122, 122),
+                style: const TextStyle(
+                  color: Color.fromARGB(255, 83, 78, 78),
                   fontSize: 16,
                 ),
               ),
