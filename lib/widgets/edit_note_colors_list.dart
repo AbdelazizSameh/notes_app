@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/color_item.dart';
-
 import '../../constants.dart';
 import '../../models/note_model.dart';
 

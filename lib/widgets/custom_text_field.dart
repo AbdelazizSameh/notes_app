@@ -9,16 +9,20 @@ class CustomTextField extends StatelessWidget {
     this.onSaved,
     this.controller,
     this.onChanged,
+    this.suffixIcon,
   });
   final String hintText;
   final int maxLines;
+  final IconData? suffixIcon;
   final TextEditingController? controller;
   final void Function(String)? onChanged;
-
   final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus!.unfocus();
+      },
       controller: controller,
       onSaved: onSaved,
       onChanged: onChanged,
@@ -32,6 +36,7 @@ class CustomTextField extends StatelessWidget {
       cursorColor: kPrimaryColor,
       maxLines: maxLines,
       decoration: InputDecoration(
+        suffixIcon: Icon(suffixIcon),
         hintText: hintText,
         border: _buildBorder(),
         enabledBorder: _buildBorder(),
