@@ -6,6 +6,8 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 
+import 'colors_list_view.dart';
+
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});
 
@@ -47,7 +49,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLines: 5,
             controller: _contentController,
           ),
-          const SizedBox(height: 55),
+          const SizedBox(height: 25),
+          const ColorsListView(),
+          const SizedBox(height: 25),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(
@@ -55,16 +59,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-
-                    var currentDate = DateTime.now();
-                    var formattedDate = DateFormat.yMd().format(currentDate);
-
-                    final NoteModel noteModel = NoteModel(
-                      color: Color(0xffabdf90).toARGB32(),
-                      title: _titleController.text,
-                      subtitle: _contentController.text,
-                      date: formattedDate,
-                    );
+                    var noteModel = getNewNote();
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
@@ -78,5 +73,18 @@ class _AddNoteFormState extends State<AddNoteForm> {
         ],
       ),
     );
+  }
+
+  NoteModel getNewNote() {
+    var currentDate = DateTime.now();
+    var formattedDate = DateFormat.yMd().format(currentDate);
+
+    NoteModel noteModel = NoteModel(
+      color: Color(0xffabdf90).toARGB32(),
+      title: _titleController.text,
+      subtitle: _contentController.text,
+      date: formattedDate,
+    );
+    return noteModel;
   }
 }
